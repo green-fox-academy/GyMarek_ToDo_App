@@ -19,9 +19,14 @@ namespace ToDoApp
                 string[] content;
                 content = File.ReadAllLines(path);
 
-                foreach (string line in content)
+                if (content.Length == 0)
                 {
-                    Console.WriteLine(line);
+                    Console.WriteLine("No todos for today! :)");
+                }
+
+                for (int i = 0; i < content.Length; i++)
+                {
+                    Console.WriteLine((i + 1) + " - " + content[i]);
                 }
             }
             catch (Exception)
