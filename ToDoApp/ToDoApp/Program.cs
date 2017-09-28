@@ -32,6 +32,10 @@ namespace ToDoApp
                     Console.WriteLine("Unable to add: no task provided");
                 }
             }
+            if ("-r" == args[0])
+            {
+                ListTasks.RemoveTask(args[1]);
+            }
         }
 
         static void Welcome()
