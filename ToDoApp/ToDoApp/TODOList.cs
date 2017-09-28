@@ -62,21 +62,12 @@ namespace ToDoApp
             try
             {
                 var file = new List<string>(File.ReadAllLines(path));
-                file.RemoveAt((int.Parse(removeTask)-1));
+                file.RemoveAt((int.Parse(removeTask) - 1));
                 File.WriteAllLines(path, file);
             }
-
-            catch (IndexOutOfRangeException)
+            catch (Exception)
             {
-                Console.WriteLine("Unable to add: no index provided");
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                Console.WriteLine("Unable to remove: index is out of bound");
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Unable to remove: index is not a number");
+                Console.WriteLine("Unable to write file: TODO.txt");
             }
         }
     }
