@@ -31,17 +31,26 @@ namespace ToDoApp
             }
             catch (Exception)
             {
-                Console.WriteLine("Unable to read file: TODO.txt");                
+                Console.WriteLine("Unable to read file: TODO.txt");
             }
         }
 
         public void AddTask(string newTask)
         {
+
             try
             {
-                using (StreamWriter writer = File.AppendText(path))
+                if (newTask.Equals(string.Empty))
                 {
-                    writer.WriteLine(newTask);
+                    Console.WriteLine("Unable to add: no task provided");
+                }
+                else
+                {
+                    using (StreamWriter writer = File.AppendText(path))
+                    {
+                        writer.WriteLine(newTask);
+                    }
+
                 }
             }
             catch (Exception)

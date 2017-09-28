@@ -19,18 +19,25 @@ namespace ToDoApp
             }
             if ("-l" == args[0])
             {
-                ListTasks.ListWrite(); 
+                ListTasks.ListWrite();
             }
             if ("-a" == args[0])
             {
-                ListTasks.AddTask(args[1]);
+                try
+                {
+                    ListTasks.AddTask(args[1]);
+                }
+                catch
+                {
+                    Console.WriteLine("Unable to add: no task provided");
+                }
             }
-        }                
-        
+        }
+
         static void Welcome()
         {
             Console.WriteLine("\nCommand Line Todo Application\n" + "=============================\n\n" + "Command line arguments:\n" + "-l   Lists all the tasks\n" +
-                "-a   Adds a new task\n" + "-r   Removes a task\n" + "-c   Completes a task\n");       
-        }      
+                "-a   Adds a new task\n" + "-r   Removes a task\n" + "-c   Completes a task\n");
+        }
     }
 }
