@@ -19,8 +19,12 @@ namespace ToDoApp
             }
             if ("-l" == args[0])
             {
-                ListTasks.ListWrite(); ;
-            }           
+                ListTasks.ListWrite(); 
+            }
+            if ("-a" == args[0])
+            {
+                ListTasks.AddTask(args[1]);
+            }
         }                
         
         static void Welcome()

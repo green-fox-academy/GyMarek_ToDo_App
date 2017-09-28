@@ -34,5 +34,20 @@ namespace ToDoApp
                 Console.WriteLine("Unable to read file: TODO.txt");                
             }
         }
+
+        public void AddTask(string newTask)
+        {
+            try
+            {
+                using (StreamWriter writer = File.AppendText(path))
+                {
+                    writer.WriteLine(newTask);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Unable to write file: TODO.txt");
+            }
+        }
     }
 }
